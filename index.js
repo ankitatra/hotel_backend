@@ -8,7 +8,7 @@ const tourController=require('./controllers/tour.js')
 
 const contactUs=require('./controllers/contactUs.js')
 const cors = require('cors');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const uri="mongodb+srv://ankita:ankita@cluster0.mbmdn0q.mongodb.net/hotelproject?retryWrites=true&w=majority"
 // const uri = "mongodb+srv://rawat009111:fSQGtHMkkia3YhjZ@tours.qpddv9d.mongodb.net/?retryWrites=true&w=majority";
 const mongoose = require('mongoose');
@@ -27,6 +27,7 @@ app.use(cors());
 app.use(express.json({ limit: '500mb' }));
 app.use(bodyParser.json());
 app.use(hotelRoutes);
+
 app.post('/user/signup', authRouter.signup);
 app.post('/user/login', authRouter.login);
 app.post('/expert/signup', authRouter.signup);

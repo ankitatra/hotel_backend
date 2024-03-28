@@ -163,7 +163,7 @@ const hotelController = {
   // Update hotel by ID
   updateHotel: async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ['tags', 'slideImages', 'mainImage', 'title', 'location', 'ratings', 'numberOfReviews', 'price', 'delayAnimation', 'city', 'categories'];
+    const allowedUpdates = ['tags', 'slideImages', 'mainImage', 'title', 'location', 'ratings', 'numberOfReviews', 'price', 'delayAnimation', 'city', 'categories','is_publish'];
 
     const isValidOperation = updates.every(update => allowedUpdates.includes(update));
 

@@ -33,8 +33,7 @@ const hotelSchema = new Schema({
                 checkout_date: { type: String },
                 // user_id: {
                 //     type: mongoose.Schema.Types.ObjectId,
-                //     ref: 'User',
-                    
+                //     ref: 'User',   
                 // }
             }]
         }],
@@ -72,6 +71,11 @@ const hotelSchema = new Schema({
         ],
         required: true
     }],
+    // hotel_subfacility:[{type:String}],
+    hotel_subfacility: {
+        type: Map,
+        of: [String]
+    },
     Property_highlights: [{
         name: { type: String },
         icon: { type: String ,default:"https://cdn-icons-png.flaticon.com/512/1160/1160358.png"}
@@ -128,7 +132,8 @@ const hotelSchema = new Schema({
             question: { type: String },
             answer: { type: String }
         }
-    ]
+    ],
+    is_publish:{type:Boolean,default:false}
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);
