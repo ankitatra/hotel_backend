@@ -31,10 +31,10 @@ const hotelSchema = new Schema({
                 checkout_time: { type: String },
                 checkin_date: { type: String },
                 checkout_date: { type: String },
-                // user_id: {
-                //     type: mongoose.Schema.Types.ObjectId,
-                //     ref: 'User',   
-                // }
+                user_id: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'User',   
+                }
             }]
         }],
         facility: [{ type: String }]
