@@ -5,7 +5,8 @@ const hotelRoutes = require('./routes/hotel.js');
 const authRouter = require('./controllers/auth.js');
 
 const tourController=require('./controllers/tour.js')
-
+const facilityRoutes = require('./routes/hotelsubfacility.js');
+const state=require("./routes/state.js")
 const contactUs=require('./controllers/contactUs.js')
 const cors = require('cors');
 const port = process.env.PORT || 4000;
@@ -36,7 +37,8 @@ app.post('/api/tours/:vendorId', tourController.createTour);
 app.post('/api/contactus', contactUs.submitContactForm);
 app.get('/api/allTours', tourController.getAllTours);
 app.get('/api/tours/:vendorId', tourController.getToursForVendor);
-
+app.use('/api/hotelsubfacility', facilityRoutes);
+app.use('/api/state', state);
 app.get('/', (req, res) => { 
   res.send('Hello, Express with MongoDB!');
 });

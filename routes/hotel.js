@@ -6,7 +6,7 @@ const hotelController = require('../controllers/hotel');
 router.post('/hotels', hotelController.createHotel);
 
 router.get('/hotels', hotelController.getAllHotels);
-
+router.get('/hotelslist', hotelController.getAllHotelslist);
 router.get('/hotels/:id', hotelController.getHotelById);
 
 router.patch('/hotels/:id', hotelController.updateHotel);

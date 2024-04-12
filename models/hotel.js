@@ -31,10 +31,10 @@ const hotelSchema = new Schema({
                 checkout_time: { type: String },
                 checkin_date: { type: String },
                 checkout_date: { type: String },
-                user_id: {
-                    type: mongoose.Schema.Types.ObjectId,
-                    ref: 'User',   
-                }
+                // user_id: {
+                //     type: mongoose.Schema.Types.ObjectId,
+                //     ref: 'User',   
+                // }
             }]
         }],
         facility: [{ type: String }]
@@ -46,7 +46,7 @@ const hotelSchema = new Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'users'
         },
-        comment: { type: String },
+        comment: [{name:{type: String }}],
         rating: { type: Number },
         like: { type: Number },
         dislike: { type: Number },
@@ -133,7 +133,21 @@ const hotelSchema = new Schema({
             answer: { type: String }
         }
     ],
-    is_publish:{type:Boolean,default:false}
+    helpfulFacts:[{ category: {type:String}, locations: [{name:{type:String},distance:{type:String}}] }],
+    review  :[{
+         review: {type:String}, username: {type:String}, profile: {type:String}
+    }],
+    paymentcancalation:[{  
+        payAtHotel: {type:Boolean,default:false},
+        payAtDay:{type:Number},
+        freeCancellationBeforeDay: {type:Number}
+    }],
+    nearby:[{ category: {type:String}, locations: [{name:{type:String},distance:{type:String}}] }],
+    is_publish:{type:Boolean,default:false},
+    vendor_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Vendor',
+      },
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);
